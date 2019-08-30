@@ -1,0 +1,13 @@
+{
+  "name": "treeshaking-webpack-note",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mkusaka/treeshaking-webpack-note.git",
+  "author": "mkusaka <hinoshita1992@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/webpack": "^4.39.1",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  }
+}

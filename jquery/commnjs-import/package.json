@@ -1,0 +1,15 @@
+{
+  "name": "commnjs-import",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/webpack": "^4.39.1",
+    "prettier": "^1.18.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}
