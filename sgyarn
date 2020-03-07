@@ -1,0 +1,14 @@
+#!/bin/bash
+set -o pipefail
+
+package=$1
+
+subs=($@)
+shift
+
+for d in packages/$package/*/; do
+  pushd $d
+  yarn $@
+  popd
+done
+wait
