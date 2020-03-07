@@ -1,6 +1,6 @@
 /**
- * @type import('webpack').Configuration
+ * @returns import('webpack').Configuration
  */
-const common = require('../../webpack.comon');
+const common = require('../../../webpack.comon');
 
 module.exports = common(__dirname);

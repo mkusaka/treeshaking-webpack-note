@@ -3,11 +3,12 @@ set -o pipefail
 
 package=$1
 
-subs=("$@")
-subs=("${subs[@]:1}")
+subs=($@)
+shift
 
-for d in packages/$package/; do
+for d in packages/$package/*/; do
   pushd $d
-  yarn $subs &
+  yarn $@ &
   popd
 done
+wait
