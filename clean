@@ -1,0 +1,17 @@
+#!/bin/bash
+set -o pipefail
+
+package=$($1 || "")
+
+if [[ $package != "" ]]; then
+  rm -rf packages/$package/node_modules
+  exit 0
+fi
+
+for d in packages/**/*/; do
+  pushd $d
+  rm -rf node_modules &
+  popd
+done
+wait
+echo "finish clean"

@@ -1,0 +1,13 @@
+#!/bin/bash
+set -o pipefail
+
+package=$1
+
+subs=("$@")
+subs=("${subs[@]:1}")
+
+for d in packages/$package/; do
+  pushd $d
+  yarn $subs &
+  popd
+done

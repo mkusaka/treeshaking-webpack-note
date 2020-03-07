@@ -1,3 +1,11 @@
 #!/bin/bash
+set -o pipefail
+packagename=$1
 
-cp 
+if [ $packagename == "" ]; then
+  echo packagename at 1st argument required.
+  exit 1
+fi
+
+mkdir -p packages/$packagename
+cp -R template/ packages/$packagename/
