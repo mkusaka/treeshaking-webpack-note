@@ -1,4 +1,4 @@
-const { uniq } = require("lodash-es");
+import { uniq } from "lodash";
 
 uniq([
   { a: 1, b: 2 },
