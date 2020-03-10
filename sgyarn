@@ -8,7 +8,7 @@ shift
 
 for d in packages/$package/*/; do
   pushd $d
-  yarn $@
+  yarn $@ &
   popd
 done
 wait

@@ -1,17 +1,16 @@
-const path = require('path');
+const path = require("path");
 
-module.exports = (currentPath) => () => {
+module.exports = currentPath => () => {
   return {
-    entry: path.resolve(currentPath, 'index.js'),
-    devtool: 'source-map',
+    mode: "production",
+    entry: path.resolve(currentPath, "index.js"),
+    devtool: "source-map",
     resolve: {
-      extensions: [
-        '.js'
-      ]
+      extensions: [".js"]
     },
     output: {
-      filename: 'output.js',
-      path: path.resolve(currentPath, 'dist')
+      filename: "output.js",
+      path: path.resolve(currentPath, "dist")
     },
     module: {
       rules: [
@@ -21,5 +20,5 @@ module.exports = (currentPath) => () => {
         }
       ]
     }
-  }
-}
+  };
+};
