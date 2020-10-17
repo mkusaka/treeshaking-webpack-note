@@ -9,10 +9,18 @@
 # parallel execution flag
 P=
 
+# only execute following package
+O=
+
 for OPT in "${@}"; do
   case $OPT in
     "-p")
       P=1
+      shift
+      ;;
+    "-o")
+      shift
+      O=$1
       shift
       ;;
   esac
@@ -20,17 +28,43 @@ done
 
 set -eo pipefail
 
-if [ -n "$P" ]; then
-  for d in packages/$package/*/; do
-    pushd $d
-    eval "${@}" &
-    popd
-  done
-  wait
+if [ -n "$O" ]; then
+  if [ -n "$P" ]; then
+    pids=()
+    dir=packages/$O/*/
+    for d in $dir; do
+      pushd $d
+      eval "${@}" &
+      pids+=($!)
+      popd
+    done
+    for pid in "${pids[@]}"; do
+      wait "$pid"
+    done
+  else
+    for d in packages/$O/*/; do
+      pushd $d
+      eval "${@}"
+      popd
+    done
+  fi
 else
-  for d in packages/$package/*/; do
-    pushd $d
-    eval "${@}"
-    popd
-  done
+  if [ -n "$P" ]; then
+    pids=()
+    for d in packages/$package/*/*/; do
+      pushd $d
+      eval "${@}" &
+      pids+=($!)
+      popd
+    done
+    for pid in "${pids[@]}"; do
+      wait "$pid"
+    done
+  else
+    for d in packages/$package/*/*/; do
+      pushd $d
+      eval "${@}"
+      popd
+    done
+  fi
 fi

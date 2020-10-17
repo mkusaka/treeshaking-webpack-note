@@ -6,12 +6,17 @@
   "author": "mkusaka <hinoshita1992@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/webpack": "^4.39.1",
-    "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7"
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.0.0"
   },
   "dependencies": {
-    "@babel/core": "^7.8.7",
-    "babel-loader": "^8.0.6"
+    "@babel/core": "^7.12.3",
+    "babel-loader": "^8.1.0",
+    "bundlesize": "^0.18.0"
+  },
+  "scripts": {
+    "setup": "yarn && bin/tour yarn",
+    "build": "bin/tour -p yarn webpack",
+    "size": "bundlesize --config bundlesize.json"
   }
 }

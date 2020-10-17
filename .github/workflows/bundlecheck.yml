@@ -1,0 +1,27 @@
+name: build
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: update
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - name: install
+        run: |
+          npm i -g yarn
+          yarn setup
+      - name: build
+        run: |
+          yarn build
+      - name: check bundlesize
+        run: |
+          yarn size
