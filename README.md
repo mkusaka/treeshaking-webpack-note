@@ -1,99 +1,114 @@
 # treeshaking-webpack-note
 
-# memo
+![build](https://github.com/mkusaka/treeshaking-webpack-note/workflows/build/badge.svg)
 
-## treeshaking-webpack-note/jquery/commonjs-import
+Webpack build size comparison for each import format, such as default import, named import, (re)named import, commonjs import.
 
-```bash
-% yarn run webpack --mode production
-yarn run v1.15.2
-$ treeshaking-webpack-note/jquery/commnjs-import/node_modules/.bin/webpack --mode production
-Hash: eb50ded44d055d264a4b
-Version: webpack 4.39.3
-Time: 3105ms
-Built at: 2019-08-31 01:01:21
-    Asset     Size  Chunks                    Chunk Names
-output.js  683 KiB       0  [emitted]  [big]  main
-Entrypoint main [big] = output.js
-[0] ./index.js 119 bytes {0} [built]
-    + 1 hidden module
+# result
 
-WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
-This can impact web performance.
-Assets:
-  output.js (683 KiB)
-
-WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
-Entrypoints:
-  main (683 KiB)
-      output.js
-
-
-WARNING in webpack performance recommendations:
-You can limit the size of your bundles by using import() or require.ensure to lazy load some parts of your application.
-For more info visit https://webpack.js.org/guides/code-splitting/
-```
-
-## treeshaking-webpack-note/jquery/default-import
+check latest result: https://github.com/mkusaka/treeshaking-webpack-note/actions?query=workflow%3Abuild
 
 ```bash
-% yarn run webpack --mode production
-yarn run v1.15.2
-$ treeshaking-webpack-note/jquery/default-import/node_modules/.bin/webpack --mode production
-Hash: 9d3b4e4a1cece187fad6
-Version: webpack 4.39.3
-Time: 3200ms
-Built at: 2019-08-31 01:03:36
-    Asset     Size  Chunks                    Chunk Names
-output.js  683 KiB       0  [emitted]  [big]  main
-Entrypoint main [big] = output.js
-[1] ./index.js 114 bytes {0} [built]
-    + 1 hidden module
+$ bundlesize --config bundlesize.json
+ WARN  github token not found
 
-WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
-This can impact web performance.
-Assets:
-  output.js (683 KiB)
-
-WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
-Entrypoints:
-  main (683 KiB)
-      output.js
+    You are missing out on some cool features.
+    Read more here: siddharthkp/bundlesize#2-build-status
 
 
-WARNING in webpack performance recommendations:
-You can limit the size of your bundles by using import() or require.ensure to lazy load some parts of your application.
-For more info visit https://webpack.js.org/guides/code-splitting/
-```
+ PASS  packages/jquery-note/commonjs-import/dist/output.js: 88.04KB (no compression)
 
-## treeshaking-webpack-note/jquery/namespace-import
+ PASS  packages/jquery-note/default-import/dist/output.js: 88.3KB (no compression)
 
-```
-% yarn run webpack --mode production
-yarn run v1.15.2
-$ treeshaking-webpack-note/jquery/namespace-import/node_modules/.bin/webpack --mode production
-Hash: 6cfc294025fb69af8aed
-Version: webpack 4.39.3
-Time: 3102ms
-Built at: 2019-08-31 01:05:29
-    Asset     Size  Chunks                    Chunk Names
-output.js  683 KiB       0  [emitted]  [big]  main
-Entrypoint main [big] = output.js
-[1] ./index.js 119 bytes {0} [built]
-    + 1 hidden module
+ PASS  packages/jquery-note/namespace-import/dist/output.js: 88.29KB (no compression)
 
-WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
-This can impact web performance.
-Assets:
-  output.js (683 KiB)
+ PASS  packages/lodash-es-note/commonjs-import/dist/output.js: 87.92KB (no compression)
 
-WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
-Entrypoints:
-  main (683 KiB)
-      output.js
+ PASS  packages/lodash-es-note/default-import/dist/output.js: 81.73KB (no compression)
 
+ PASS  packages/lodash-es-note/named-import/dist/output.js: 4.94KB (no compression)
 
-WARNING in webpack performance recommendations:
-You can limit the size of your bundles by using import() or require.ensure to lazy load some parts of your application.
-For more info visit https://webpack.js.org/guides/code-splitting/
+ PASS  packages/lodash-es-note/renamed-import/dist/output.js: 4.94KB (no compression)
+
+ PASS  packages/lodash-es-note/scoped-import/dist/output.js: 4.94KB (no compression)
+
+ PASS  packages/moment-note/commonjs-import/dist/output.js: 289.71KB (no compression)
+
+ PASS  packages/moment-note/default-import/dist/output.js: 289.9KB (no compression)
+
+ PASS  packages/moment-note/named-import/dist/output.js: 289.89KB (no compression)
+
+ PASS  packages/react-note/commonjs-import/dist/output.js: 125.98KB (no compression)
+
+ PASS  packages/react-note/default-import/dist/output.js: 124.39KB (no compression)
+
+ PASS  packages/react-note/named-import/dist/output.js: 124.39KB (no compression)
+
+ PASS  packages/react-note/renamed-import/dist/output.js: 124.39KB (no compression)
+
+ PASS  packages/jquery-note/commonjs-import/dist/output.js: 30.4KB (gzip)
+
+ PASS  packages/jquery-note/default-import/dist/output.js: 30.53KB (gzip)
+
+ PASS  packages/jquery-note/namespace-import/dist/output.js: 30.52KB (gzip)
+
+ PASS  packages/lodash-es-note/commonjs-import/dist/output.js: 29.86KB (gzip)
+
+ PASS  packages/lodash-es-note/default-import/dist/output.js: 27.44KB (gzip)
+
+ PASS  packages/lodash-es-note/named-import/dist/output.js: 1.84KB (gzip)
+
+ PASS  packages/lodash-es-note/renamed-import/dist/output.js: 1.84KB (gzip)
+
+ PASS  packages/lodash-es-note/scoped-import/dist/output.js: 1.84KB (gzip)
+
+ PASS  packages/moment-note/commonjs-import/dist/output.js: 71.86KB (gzip)
+
+ PASS  packages/moment-note/default-import/dist/output.js: 71.96KB (gzip)
+
+ PASS  packages/moment-note/named-import/dist/output.js: 71.95KB (gzip)
+
+ PASS  packages/react-note/commonjs-import/dist/output.js: 39.67KB (gzip)
+
+ PASS  packages/react-note/default-import/dist/output.js: 39.25KB (gzip)
+
+ PASS  packages/react-note/named-import/dist/output.js: 39.25KB (gzip)
+
+ PASS  packages/react-note/renamed-import/dist/output.js: 39.25KB (gzip)
+
+ PASS  packages/jquery-note/commonjs-import/dist/output-pretty.js: 189.6KB (brotli)
+
+ PASS  packages/jquery-note/commonjs-import/dist/output.js: 27.54KB (brotli)
+
+ PASS  packages/jquery-note/default-import/dist/output-pretty.js: 189.73KB (brotli)
+
+ PASS  packages/jquery-note/default-import/dist/output.js: 27.63KB (brotli)
+
+ PASS  packages/jquery-note/namespace-import/dist/output-pretty.js: 189.72KB (brotli)
+
+ PASS  packages/jquery-note/namespace-import/dist/output.js: 27.65KB (brotli)
+
+ PASS  packages/lodash-es-note/commonjs-import/dist/output.js: 26.06KB (brotli)
+
+ PASS  packages/lodash-es-note/default-import/dist/output.js: 24.32KB (brotli)
+
+ PASS  packages/lodash-es-note/named-import/dist/output.js: 1.73KB (brotli)
+
+ PASS  packages/lodash-es-note/renamed-import/dist/output.js: 1.73KB (brotli)
+
+ PASS  packages/lodash-es-note/scoped-import/dist/output.js: 1.73KB (brotli)
+
+ PASS  packages/moment-note/commonjs-import/dist/output.js: 56.29KB (brotli)
+
+ PASS  packages/moment-note/default-import/dist/output.js: 56.33KB (brotli)
+
+ PASS  packages/moment-note/named-import/dist/output.js: 56.37KB (brotli)
+
+ PASS  packages/react-note/commonjs-import/dist/output.js: 34.57KB (brotli)
+
+ PASS  packages/react-note/default-import/dist/output.js: 34.27KB (brotli)
+
+ PASS  packages/react-note/named-import/dist/output.js: 34.25KB (brotli)
+
+ PASS  packages/react-note/renamed-import/dist/output.js: 34.27KB (brotli)
 ```
