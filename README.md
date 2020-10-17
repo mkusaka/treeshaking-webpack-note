@@ -1,7 +1,9 @@
 # treeshaking-webpack-note
 
 # memo
-## treeshaking-webpack-note/jquery/commnjs-import
+
+## treeshaking-webpack-note/jquery/commonjs-import
+
 ```bash
 % yarn run webpack --mode production
 yarn run v1.15.2
@@ -33,6 +35,7 @@ For more info visit https://webpack.js.org/guides/code-splitting/
 ```
 
 ## treeshaking-webpack-note/jquery/default-import
+
 ```bash
 % yarn run webpack --mode production
 yarn run v1.15.2
@@ -64,6 +67,7 @@ For more info visit https://webpack.js.org/guides/code-splitting/
 ```
 
 ## treeshaking-webpack-note/jquery/namespace-import
+
 ```
 % yarn run webpack --mode production
 yarn run v1.15.2
