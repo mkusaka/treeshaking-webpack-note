@@ -3,7 +3,9 @@
 #   # execute command to all packages
 #   bin/tour yarn
 #   # parallel execution
-#   bin/tour -p 
+#   bin/tour -p
+#   # exec each template dir
+#   bin/trou -t
 #
 
 # parallel execution flag
@@ -12,10 +14,17 @@ P=
 # only execute following package
 O=
 
+# execute for template
+T=
+
 for OPT in "${@}"; do
   case $OPT in
     "-p")
       P=1
+      shift
+      ;;
+    "-t")
+      T=1
       shift
       ;;
     "-o")
@@ -27,6 +36,15 @@ for OPT in "${@}"; do
 done
 
 set -eo pipefail
+
+if [ -n "$T" ]; then
+  for d in template/*/*/; do
+    pushd $d
+    eval "${@}"
+    popd
+  done
+  exit 0
+fi
 
 if [ -n "$O" ]; then
   if [ -n "$P" ]; then
