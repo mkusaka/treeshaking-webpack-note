@@ -6,7 +6,7 @@
   "author": "mkusaka <hinoshita1992@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "webpack": "^5.1.3",
+    "webpack": "4",
     "webpack-cli": "^4.0.0"
   },
   "dependencies": {
