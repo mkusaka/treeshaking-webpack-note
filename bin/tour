@@ -1,0 +1,36 @@
+#!/bin/bash
+# usage:
+#   # execute command to all packages
+#   bin/tour yarn
+#   # parallel execution
+#   bin/tour -p 
+#
+
+# parallel execution flag
+P=
+
+for OPT in "${@}"; do
+  case $OPT in
+    "-p")
+      P=1
+      shift
+      ;;
+  esac
+done
+
+set -eo pipefail
+
+if [ -n "$P" ]; then
+  for d in packages/$package/*/; do
+    pushd $d
+    eval "${@}" &
+    popd
+  done
+  wait
+else
+  for d in packages/$package/*/; do
+    pushd $d
+    eval "${@}"
+    popd
+  done
+fi
