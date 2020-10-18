@@ -26,3 +26,6 @@ jobs:
       - name: check bundlesize
         run: |
           yarn size
+      - name: format bundlesize result
+        run: |
+          yarn size:md

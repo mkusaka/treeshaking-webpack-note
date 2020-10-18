@@ -17,6 +17,7 @@
   "scripts": {
     "setup": "yarn && bin/tour yarn",
     "build": "bin/tour -p yarn webpack",
-    "size": "bundlesize --config bundlesize.json"
+    "size": "bundlesize --config bundlesize.json",
+    "size:md": "yarn size | node format.js"
   }
 }
