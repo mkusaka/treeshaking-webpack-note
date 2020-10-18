@@ -60,28 +60,8 @@ check latest result: https://github.com/mkusaka/treeshaking-webpack-note/actions
 
 ## webpack@4
 
-### table
-
 | packageName | importType       | size     | compressionType |
 | ----------- | ---------------- | -------- | --------------- |
-| jquery      | commonjs-import  | 189.6KB  | brotli          |
-| jquery      | commonjs-import  | 27.54KB  | brotli          |
-| jquery      | default-import   | 189.73KB | brotli          |
-| jquery      | default-import   | 27.63KB  | brotli          |
-| jquery      | namespace-import | 189.72KB | brotli          |
-| jquery      | namespace-import | 27.65KB  | brotli          |
-| lodash-es   | commonjs-import  | 26.06KB  | brotli          |
-| lodash-es   | default-import   | 24.32KB  | brotli          |
-| lodash-es   | named-import     | 1.73KB   | brotli          |
-| lodash-es   | renamed-import   | 1.73KB   | brotli          |
-| lodash-es   | scoped-import    | 1.73KB   | brotli          |
-| moment      | commonjs-import  | 56.29KB  | brotli          |
-| moment      | default-import   | 56.33KB  | brotli          |
-| moment      | named-import     | 56.37KB  | brotli          |
-| react       | commonjs-import  | 34.57KB  | brotli          |
-| react       | default-import   | 34.27KB  | brotli          |
-| react       | named-import     | 34.25KB  | brotli          |
-| react       | renamed-import   | 34.27KB  | brotli          |
 | jquery      | commonjs-import  | 88.91KB  | no compression  |
 | jquery      | default-import   | 88.94KB  | no compression  |
 | jquery      | namespace-import | 88.93KB  | no compression  |
