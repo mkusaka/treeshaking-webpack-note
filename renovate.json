@@ -2,7 +2,15 @@
   "extends": [
     "config:base"
   ],
-  "additionalBranchPrefix": "{{baseDir}}-",
+  major: {
+    "additionalBranchPrefix": "{{baseDir}}-"
+  },
+  minor: {
+    "additionalBranchPrefix": ""
+  },
+  patch: {
+    "additionalBranchPrefix": ""
+  },
   "rangeStrategy": "bump",
   "automerge": true
 }
