@@ -10,7 +10,7 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
-    "@babel/core": "^7.12.3",
+    "@babel/core": "^7.12.9",
     "babel-loader": "^8.2.1",
     "bundlesize": "^0.18.0"
   },
