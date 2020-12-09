@@ -10,8 +10,8 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
-    "@babel/core": "^7.12.9",
-    "babel-loader": "^8.2.1",
+    "@babel/core": "^7.12.10",
+    "babel-loader": "^8.2.2",
     "bundlesize": "^0.18.0"
   },
   "scripts": {
