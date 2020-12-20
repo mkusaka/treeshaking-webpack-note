@@ -9,6 +9,6 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
-    "lodash-es": "^4.17.15"
+    "lodash-es": "^4.17.20"
   }
 }
